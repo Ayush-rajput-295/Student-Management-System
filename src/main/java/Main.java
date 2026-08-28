@@ -340,39 +340,41 @@ public class Main {
 
                 case 5:
 
-                    System.out.println(
-                        "\n----- Delete Student -----"
-                    );
+                   System.out.println("\n----- Delete Student -----");
 
-                    System.out.print(
-                        "Enter Student ID to delete: "
-                    );
+                   System.out.print("Enter Student ID to delete: ");
 
-                    if (!sc.hasNextInt()) {
-
-                        System.out.println(
-                            "❌ Student ID must be a number!"
-                        );
-
-                        sc.nextLine();
-                        break;
+                   if (!sc.hasNextInt()) {
+                      System.out.println("❌ Student ID must be a number!");
+                       sc.nextLine();
+                      break;
                     }
 
-                    int deleteId = sc.nextInt();
+                  int deleteId = sc.nextInt();
 
-                    if (deleteId <= 0) {
-
-                        System.out.println(
-                            "❌ Invalid Student ID!"
-                        );
-
-                        break;
+                  if (deleteId <= 0) {
+                      System.out.println("❌ Invalid Student ID!");
+                       break;
                     }
 
-                    dao.deleteStudent(deleteId);
+                      sc.nextLine();
+
+                    System.out.print("Are you sure you want to delete this student? (Y/N): ");
+                    String confirmation = sc.nextLine().trim();
+
+                   if (confirmation.equalsIgnoreCase("Y")) {
+                      dao.deleteStudent(deleteId);
+
+                    } else if (confirmation.equalsIgnoreCase("N")) {
+
+                      System.out.println("❌ Delete cancelled.");
+
+                    } else {
+
+                       System.out.println("❌ Please enter Y or N.");
+                    }
 
                     break;
-
 
                 // ==================================
                 // 6. EXIT
