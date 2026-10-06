@@ -28,9 +28,7 @@ public class Main {
             // Check choice
             if (!sc.hasNextInt()) {
 
-                System.out.println(
-                    "❌ Please enter a number from 1 to 6."
-                );
+                System.out.println(" Please enter a number from 1 to 6.");
 
                 sc.nextLine();
                 continue;
@@ -40,22 +38,16 @@ public class Main {
 
             switch (choice) {
 
-                // ==================================
                 // 1. ADD STUDENT
-                // ==================================
 
                 case 1:
 
                     System.out.println("\n----- Add Student -----");
-
-                    // Student ID
                     System.out.print("Enter Student ID: ");
 
                     if (!sc.hasNextInt()) {
 
-                        System.out.println(
-                            "❌ Student ID must be a number!"
-                        );
+                        System.out.println(" Student ID must be a number!");
 
                         sc.nextLine();
                         break;
@@ -65,37 +57,27 @@ public class Main {
 
                     if (id <= 0) {
 
-                        System.out.println(
-                            "❌ Student ID must be greater than 0!"
-                        );
+                        System.out.println(" Student ID must be greater than 0!");
 
                         break;
                     }
 
                     sc.nextLine();
-
-                    // Name
                     System.out.print("Enter Name: ");
 
                     String name = sc.nextLine().trim();
 
                     if (name.isEmpty()) {
 
-                        System.out.println(
-                            "❌ Name cannot be empty!"
-                        );
+                        System.out.println(" Name cannot be empty!");
 
                         break;
                     }
-
-                    // Age
                     System.out.print("Enter Age: ");
 
                     if (!sc.hasNextInt()) {
 
-                        System.out.println(
-                            "❌ Age must be a number!"
-                        );
+                        System.out.println(" Age must be a number!");
 
                         sc.nextLine();
                         break;
@@ -105,9 +87,7 @@ public class Main {
 
                     if (age <= 0 || age > 100) {
 
-                        System.out.println(
-                            "❌ Please enter a valid age!"
-                        );
+                        System.out.println(" Please enter a valid age!");
 
                         break;
                     }
@@ -121,77 +101,47 @@ public class Main {
 
                     if (course.isEmpty()) {
 
-                        System.out.println(
-                            "❌ Course cannot be empty!"
-                        );
+                        System.out.println(" Course cannot be empty!");
 
                         break;
                     }
-
-                    // Email
                     System.out.print("Enter Email: ");
 
                     String email = sc.nextLine().trim();
 
                     if (!isValidEmail(email)) {
 
-                        System.out.println(
-                            "❌ Please enter a valid email!"
-                        );
+                        System.out.println(" Please enter a valid email!");
 
                         break;
                     }
-
-                    // Create Student object
-                    Student student = new Student(
-                            id,
-                            name,
-                            age,
-                            course,
-                            email
-                    );
+                    Student student = new Student( id,name,age,course,email);
+                           
 
                     // Add to database
                     dao.addStudent(student);
 
                     break;
-
-
-                // ==================================
                 // 2. VIEW ALL STUDENTS
-                // ==================================
 
                 case 2:
 
-                    System.out.println(
-                        "\n----- All Students -----"
-                    );
+                    System.out.println("\n----- All Students -----");
 
                     dao.viewAllStudents();
-
                     break;
-
-
-                // ==================================
                 // 3. SEARCH STUDENT
-                // ==================================
 
                 case 3:
 
-                    System.out.println(
-                        "\n----- Search Student -----"
-                    );
+                    System.out.println("\n----- Search Student -----");
 
-                    System.out.print(
-                        "Enter Student ID to search: "
-                    );
+                    System.out.print("Enter Student ID to search: ");
+                        
 
                     if (!sc.hasNextInt()) {
 
-                        System.out.println(
-                            "❌ Student ID must be a number!"
-                        );
-
+                        System.out.println(" Student ID must be a number!");
                         sc.nextLine();
                         break;
                     }
@@ -200,9 +150,7 @@ public class Main {
 
                     if (searchId <= 0) {
 
-                        System.out.println(
-                            "❌ Invalid Student ID!"
-                        );
+                        System.out.println(" Invalid Student ID!");
 
                         break;
                     }
@@ -212,25 +160,20 @@ public class Main {
                     break;
 
 
-                // ==================================
+               
                 // 4. UPDATE STUDENT
-                // ==================================
+                
 
                 case 4:
 
-                    System.out.println(
-                        "\n----- Update Student -----"
-                    );
+                    System.out.println("\n----- Update Student -----");
 
-                    System.out.print(
-                        "Enter Student ID to update: "
-                    );
+                    System.out.print("Enter Student ID to update: ");
 
                     if (!sc.hasNextInt()) {
 
-                        System.out.println(
-                            "❌ Student ID must be a number!"
-                        );
+                        System.out.println(" Student ID must be a number!");
+                            
 
                         sc.nextLine();
                         break;
@@ -240,10 +183,9 @@ public class Main {
 
                     if (updateId <= 0) {
 
-                        System.out.println(
-                            "❌ Invalid Student ID!"
-                        );
+                        System.out.println(" Invalid Student ID!");
 
+                            
                         break;
                     }
 
@@ -256,22 +198,15 @@ public class Main {
 
                     if (updateName.isEmpty()) {
 
-                        System.out.println(
-                            "❌ Name cannot be empty!"
-                        );
+                        System.out.println( " Name cannot be empty!");
 
                         break;
                     }
-
-                    // New Age
                     System.out.print("Enter New Age: ");
 
                     if (!sc.hasNextInt()) {
 
-                        System.out.println(
-                            "❌ Age must be a number!"
-                        );
-
+                        System.out.println(" Age must be a number!");
                         sc.nextLine();
                         break;
                     }
@@ -280,64 +215,42 @@ public class Main {
 
                     if (updateAge <= 0 || updateAge > 100) {
 
-                        System.out.println(
-                            "❌ Please enter a valid age!"
-                        );
-
+                        System.out.println( " Please enter a valid age!");
                         break;
                     }
 
                     sc.nextLine();
-
-                    // New Course
                     System.out.print("Enter New Course: ");
 
-                    String updateCourse =
-                            sc.nextLine().trim();
+                    String updateCourse = sc.nextLine().trim();
+                            
 
                     if (updateCourse.isEmpty()) {
 
-                        System.out.println(
-                            "❌ Course cannot be empty!"
-                        );
-
+                        System.out.println(" Course cannot be empty!"); 
                         break;
                     }
 
-                    // New Email
                     System.out.print("Enter New Email: ");
 
-                    String updateEmail =
-                            sc.nextLine().trim();
+                    String updateEmail = sc.nextLine().trim();
 
+                            
                     if (!isValidEmail(updateEmail)) {
 
-                        System.out.println(
-                            "❌ Please enter a valid email!"
-                        );
+                        System.out.println( " Please enter a valid email!");
 
                         break;
                     }
 
                     // Create updated Student object
-                    Student updatedStudent = new Student(
-                            updateId,
-                            updateName,
-                            updateAge,
-                            updateCourse,
-                            updateEmail
-                    );
-
-                    // Update database
+                    Student updatedStudent = new Student(updateId,updateName,updateAge,updateCourse,updateEmail );
+                            
                     dao.updateStudent(updatedStudent);
 
                     break;
 
-
-                // ==================================
                 // 5. DELETE STUDENT
-                // ==================================
-
                 case 5:
 
                    System.out.println("\n----- Delete Student -----");
@@ -345,7 +258,7 @@ public class Main {
                    System.out.print("Enter Student ID to delete: ");
 
                    if (!sc.hasNextInt()) {
-                      System.out.println("❌ Student ID must be a number!");
+                      System.out.println(" Student ID must be a number!");
                        sc.nextLine();
                       break;
                     }
@@ -353,7 +266,7 @@ public class Main {
                   int deleteId = sc.nextInt();
 
                   if (deleteId <= 0) {
-                      System.out.println("❌ Invalid Student ID!");
+                      System.out.println(" Invalid Student ID!");
                        break;
                     }
 
@@ -367,57 +280,40 @@ public class Main {
 
                     } else if (confirmation.equalsIgnoreCase("N")) {
 
-                      System.out.println("❌ Delete cancelled.");
+                      System.out.println(" Delete cancelled.");
 
                     } else {
 
-                       System.out.println("❌ Please enter Y or N.");
+                       System.out.println(" Please enter Y or N.");
                     }
 
                     break;
 
-                // ==================================
                 // 6. EXIT
-                // ==================================
-
                 case 6:
 
-                    System.out.println(
-                        "\nThank you for using "
-                        + "Student Management System!"
-                    );
-
+                    System.out.println("\nThank you for using " + "Student Management System!");
                     sc.close();
 
                     return;
-
-
-                // ==================================
                 // INVALID CHOICE
-                // ==================================
-
+                
                 default:
 
-                    System.out.println(
-                        "❌ Invalid choice!"
-                    );
-
-                    System.out.println(
-                        "Please choose between 1 and 6."
-                    );
+                    System.out.println(" Invalid choice!");
+                
+                    System.out.println("Please choose between 1 and 6.");
+                    
+                        
             }
         }
     }
-
-
-    // ==================================
     // EMAIL VALIDATION METHOD
-    // ==================================
 
     public static boolean isValidEmail(String email) {
 
-        return email.matches(
-            "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
-        );
+        return email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$");
+        
+            
     }
 }
