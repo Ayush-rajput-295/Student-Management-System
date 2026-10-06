@@ -31,18 +31,14 @@ public class StudentDAO {
 
             statement.executeUpdate();
 
-            System.out.println("✅ Student added successfully!");
+            System.out.println(" Student added successfully!");
 
         } catch (SQLException e) {
 
             if (e.getErrorCode() == 1062) {
-                System.out.println(
-                    "❌ Student ID " + student.getId() + " already exists!"
-                );
+                System.out.println(" Student ID " + student.getId() + " already exists!");
             } else {
-                System.out.println(
-                    "❌ Database error: " + e.getMessage()
-                );
+                System.out.println(" Database error: " + e.getMessage());
             }
         }
     }
@@ -64,7 +60,7 @@ public class StudentDAO {
 
             if (!resultSet.next()) {
 
-                System.out.println("❌ No students found.");
+                System.out.println(" No students found.");
 
             } else {
 
@@ -72,20 +68,20 @@ public class StudentDAO {
 
                 do {
 
-                    System.out.println("ID: "
-                            + resultSet.getInt("id"));
+                    System.out.println("ID: "+ resultSet.getInt("id"));
+                            
 
-                    System.out.println("Name: "
-                            + resultSet.getString("name"));
+                    System.out.println("Name: " + resultSet.getString("name"));
 
-                    System.out.println("Age: "
-                            + resultSet.getInt("age"));
+                            
+                    System.out.println("Age: " + resultSet.getInt("age"));
+                            
 
-                    System.out.println("Course: "
-                            + resultSet.getString("course"));
+                    System.out.println("Course: " + resultSet.getString("course"));
+                            
 
-                    System.out.println("Email: "
-                            + resultSet.getString("email"));
+                    System.out.println("Email: " + resultSet.getString("email"));
+                            
 
                     System.out.println("------------------------");
 
@@ -94,9 +90,8 @@ public class StudentDAO {
 
         } catch (SQLException e) {
 
-            System.out.println(
-                "❌ Database error: " + e.getMessage()
-            );
+            System.out.println(" Database error: " + e.getMessage());
+                
         }
     }
 
@@ -122,34 +117,32 @@ public class StudentDAO {
 
                     System.out.println("\n----- Student Found -----");
 
-                    System.out.println("ID: "
-                            + resultSet.getInt("id"));
+                    System.out.println("ID: " + resultSet.getInt("id"));
+                            
 
-                    System.out.println("Name: "
-                            + resultSet.getString("name"));
+                    System.out.println("Name: "  + resultSet.getString("name"));
+                           
 
-                    System.out.println("Age: "
-                            + resultSet.getInt("age"));
+                    System.out.println("Age: " + resultSet.getInt("age"));
 
-                    System.out.println("Course: "
-                            + resultSet.getString("course"));
+                            
+                    System.out.println("Course: " + resultSet.getString("course"));
+                            
 
-                    System.out.println("Email: "
-                            + resultSet.getString("email"));
+                    System.out.println("Email: " + resultSet.getString("email"));
+                            
 
                     System.out.println("-------------------------");
 
                 } else {
 
-                    System.out.println("❌ Student not found!");
+                    System.out.println(" Student not found!");
                 }
             }
 
         } catch (SQLException e) {
 
-            System.out.println(
-                "❌ Database error: " + e.getMessage()
-            );
+            System.out.println(" Database error: " + e.getMessage());
         }
     }
 
@@ -177,22 +170,16 @@ public class StudentDAO {
 
             if (rows > 0) {
 
-                System.out.println(
-                    "✅ Student updated successfully!"
-                );
+                System.out.println(" Student updated successfully!");
 
             } else {
 
-                System.out.println(
-                    "❌ Student not found!"
-                );
+                System.out.println(" Student not found!");
             }
 
         } catch (SQLException e) {
 
-            System.out.println(
-                "❌ Database error: " + e.getMessage()
-            );
+            System.out.println(" Database error: " + e.getMessage());
         }
     }
 
@@ -216,22 +203,16 @@ public class StudentDAO {
 
             if (rows > 0) {
 
-                System.out.println(
-                    "✅ Student deleted successfully!"
-                );
+                System.out.println(" Student deleted successfully!");
 
             } else {
 
-                System.out.println(
-                    "❌ Student not found!"
-                );
+                System.out.println(" Student not found!");
             }
 
         } catch (SQLException e) {
 
-            System.out.println(
-                "❌ Database error: " + e.getMessage()
-            );
+            System.out.println(" Database error: " + e.getMessage());
         }
     }
 }
